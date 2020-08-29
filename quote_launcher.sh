@@ -75,9 +75,7 @@ while [ "$choice" = "6" ]; do
 
 	if [ $choice -eq 1 ]; then
 		echo "$(tput setaf 3)[1] $(tput setaf 7) Launch $(tput setaf 6)Quote$(tput setaf 7)"
-		echo ""
 		sleep 3s
-		echo ""
 		cd ..
 		cd QuoteBot/QuoteBot
 		python3 quote.py
@@ -91,7 +89,6 @@ while [ "$choice" = "6" ]; do
 		cd QuoteBot
 		git clone git://github.com/Quote-Bot/QuoteBot
 		cd ..
-		echo ""
 		sleep 1s
 		echo "Done!"
 	else
@@ -103,6 +100,19 @@ while [ "$choice" = "6" ]; do
 		cd ..
 		find_or_create_quote
 		move_core
+	else
+
+	if [ $choice -eq 4 ]; then
+		echo "$(tput setaf 3)[4] $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Modules$(tput setaf 7)"
+		sleep 3s
+	else
+	
+	if [ $choice -eq 5 ]; then
+		echo "$(tput setaf 3)[5] $(tput setaf 1)Exit$(tput setaf 7)"
+		echo "Exiting.."
+		break
+	fi
+	fi
 	fi
 	fi
 	fi
