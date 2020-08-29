@@ -39,6 +39,8 @@ choice=6
 	echo "Choose $(tput setaf 3)[4] $(tput setaf 7)to $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Modules$(tput setaf 7)"
 	echo "Choose $(tput setaf 3)[5] $(tput setaf 7)to $(tput setaf 1)Exit$(tput setaf 7)"
 
+BASE=$PWD
+
 find_or_create_quote()
 {
 	if [ ! -d "QuoteBot" ]
@@ -50,34 +52,21 @@ find_or_create_quote()
 		echo "Old Quote found!"
 		if [ ! -d "QuoteBotOld" ]
 		then
-			mv QuoteBot/ QuoteBotOld/
+			mv $BASE/QuoteBot $BASE/QuoteBotOld
 		else
-			rm -rf QuoteBotOld/ -f
-			mkdir QuoteBot
+			rm -rf $BASE/QuoteBotOld
+			mkdir $BASE/QuoteBot
 		fi
 	fi
 }
 
-move_core()
-{
-	if [ ! -d QuoteBot ]
-	then
-		echo "$(tput setaf 1)Quote not found!$(tput setaf 7)"
-		sleep 3s
-		echo "$(tput setaf 3)Please run option 2$(tput setaf 7)"
-	else
-		mv QuoteBotOld/QuoteBot/quote.py QuoteBot/QuoteBot
-	fi
-}
-
-while [ "$choice" = "6" ]; do
+while [ $choice = 6 ]; do
 	read choice
 
 	if [ $choice -eq 1 ]; then
 		echo "$(tput setaf 3)[1] $(tput setaf 7) Launch $(tput setaf 6)Quote$(tput setaf 7)"
 		sleep 3s
-		cd ..
-		cd QuoteBot/QuoteBot
+		cd $BASE/QuoteBot/QuoteBot
 		python3 quote.py
 	else
 
@@ -86,20 +75,20 @@ while [ "$choice" = "6" ]; do
 		echo ""
 		sleep 1s
 		find_or_create_quote
-		cd QuoteBot
+		cd $BASE/QuoteBot
 		git clone git://github.com/Quote-Bot/QuoteBot
 		cd ..
 		sleep 1s
-		echo "Done!"
+		echo "$(tput setaf 3)Downloaded $(tput setaf 7)Quote!$(tput setaf 7)"
 	else
 
 	if [ $choice -eq 3 ]; then
 		echo "$(tput setaf 3)[3] $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Core$(tput setaf 7)"
 		echo ""
 		sleep 3s
-		cd ..
 		find_or_create_quote
-		move_core
+		rm -rf $BASE/QuoteBot/QuoteBot/quote.py
+		curl https://github.com/Quote-Bot/QuoteBot/blob/master/quote.py -o $BASE/QuoteBot/QuoteBot/quote.py
 	else
 
 	if [ $choice -eq 4 ]; then
@@ -117,3 +106,4 @@ while [ "$choice" = "6" ]; do
 	fi
 	fi
 done
+exit 0
