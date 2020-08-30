@@ -35,8 +35,8 @@ echo ""
 choice=6
 	echo "Choose $(tput setaf 3)[1] $(tput setaf 7)to Launch $(tput setaf 6)Quote$(tput setaf 7)"
 	echo "Choose $(tput setaf 3)[2] $(tput setaf 7)to Download $(tput setaf 6)Quote$(tput setaf 7)"
-	echo "Choose $(tput setaf 3)[3] $(tput setaf 7)to $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Core$(tput setaf 7)"
-	echo "Choose $(tput setaf 3)[4] $(tput setaf 7)to $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Modules$(tput setaf 7)"
+	echo "Choose $(tput setaf 3)[3] $(tput setaf 7)to $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Core $(tput setaf 7)and run $(tput setaf 6)Quote$(tput setaf 7)"
+	echo "Choose $(tput setaf 3)[4] $(tput setaf 7)to $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Modules $(tput setaf 7)and run $(tput setaf 6)Quote$(tput setaf 7)"
 	echo "Choose $(tput setaf 3)[5] $(tput setaf 7)to $(tput setaf 1)Exit$(tput setaf 7)"
 
 BASE=$PWD
@@ -68,7 +68,13 @@ while [ $choice = 6 ]; do
 	if [ $choice -eq 1 ]; then
 		echo "$(tput setaf 3)[1] $(tput setaf 7) Launch $(tput setaf 6)Quote$(tput setaf 7)"
 		sleep 3s
-		cd $BASE/QuoteBot/QuoteBot
+		
+		if [ ! -d $BASE/QuoteBot ]
+		then
+			cd $BASE/QuoteBotOld/QuoteBot
+		else
+			cd $BASE/QuoteBot/QuoteBot
+		
 		python3 quote.py
 	else
 
@@ -89,13 +95,30 @@ while [ $choice = 6 ]; do
 		echo ""
 		sleep 3s
 		find_or_create_quote
+		echo "$(tput setaf 1)Removing old core..$(tput setaf 7)"
 		rm -rf $BASE/QuoteBotOld/QuoteBot/quote.py
+		echo "$(tput setaf 2)Installing new core..$(tput setaf 7)"
 		curl https://raw.githubusercontent.com/Quote-Bot/QuoteBot/master/quote.py -o $BASE/QuoteBotOld/QuoteBot/quote.py
+		echo "$(tput setaf 2)Successfully installed new core.$(tput setaf 7)"
+		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
+		sleep 3s
+		cd $BASE/QuoteBotOld/QuoteBot && py quote.py
 	else
 
 	if [ $choice -eq 4 ]; then
 		echo "$(tput setaf 3)[4] $(tput setaf 6)Update $(tput setaf 7)the $(tput setaf 6)Modules$(tput setaf 7)"
+		echo ""
 		sleep 3s
+		find_or_create_quote
+		echo "$(tput setaf 1)Removing old modules..$(tput setaf 7)"
+		rm -rf $BASE/QuoteBotOld/QuoteBot/cogs
+		git clone git://github.com/Quote-Bot/QuoteBot NewModules
+		echo "$(tput setaf 2)Installing new modules..$(tput setaf 7)"
+		mv $BASE/NewModules/cogs $BASE/QuoteBotOld/QuoteBot/
+		echo "$(tput setaf 2)Successfully installed new modules.$(tput setaf 7)"
+		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
+		sleep 3s
+		cd $BASE/QuoteBotOld/QuoteBot && py quote.py
 	else
 	
 	if [ $choice -eq 5 ]; then
