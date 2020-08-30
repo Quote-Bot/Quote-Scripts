@@ -52,7 +52,7 @@ find_or_create_quote()
 		echo "$(tput setaf 2)Old Quote found!"
 		if [ ! -d "QuoteBotOld" ]
 		then
-			echo "$(tput setaf 1)QuoteBotOld not found. $(tput setaf 3)QuoteBot => QuoteBotOld"
+			echo "$(tput setaf 1)QuoteBotOld not found. $(tput setaf 3)QuoteBot => QuoteBotOld$(tput setaf 7)"
 			mv $BASE/QuoteBot $BASE/QuoteBotOld
 		else
 			echo "$(tput setaf 2)QuoteBotOld found. $(tput setaf 1)QuoteBotOld >X<$(tput setaf 7)"
