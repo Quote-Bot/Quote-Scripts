@@ -88,7 +88,7 @@ while [ $choice = 6 ]; do
 		sleep 3s
 		find_or_create_quote
 		rm -rf $BASE/QuoteBotOld/QuoteBot/quote.py
-		curl https://raw.githubusercontent.com/Quote-Bot/QuoteBot/master/quote.py -o $BASE/QuoteBot/QuoteBot/quote.py
+		curl https://raw.githubusercontent.com/Quote-Bot/QuoteBot/master/quote.py -o $BASE/QuoteBotOld/QuoteBot/quote.py
 	else
 
 	if [ $choice -eq 4 ]; then
