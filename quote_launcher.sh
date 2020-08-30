@@ -45,15 +45,17 @@ find_or_create_quote()
 {
 	if [ ! -d "QuoteBot" ]
 	then
-		echo "$(tput setaf 1)Cannot find old Quote$(tput setaf 7)"
+		echo "$(tput setaf 1)Cannot find Quote$(tput setaf 7)"
 		echo "Creating directory..."
 		mkdir QuoteBot
 	else
-		echo "Old Quote found!"
+		echo "$(tput setaf 2)Old Quote found!"
 		if [ ! -d "QuoteBotOld" ]
 		then
+			echo "$(tput setaf 1)QuoteBotOld not found. $(tput setaf 3)QuoteBot => QuoteBotOld"
 			mv $BASE/QuoteBot $BASE/QuoteBotOld
 		else
+			echo "$(tput setaf 2)QuoteBotOld found. $(tput setaf 1)QuoteBotOld >X<$(tput setaf 7)"
 			rm -rf $BASE/QuoteBotOld
 			mkdir $BASE/QuoteBot
 		fi
