@@ -4,6 +4,8 @@ echo ""
 echo "Initiated..."
 echo ""
 
+sudo apt update
+
 if ! hash python3 2> /dev/null;
 then
 	echo "$(tput setaf 3)Python 3.5+ is not installed$(tput setaf 7)"
@@ -31,7 +33,7 @@ fi
 if ! hash pip &> /dev/null;
 then
 	echo "$(tput setaf 3)pip is not installed$(tput setaf 7)"
-	sudo apt-get install python-pip
+	sudo apt-get install python3-pip
 else
 	echo "$(tput setaf 2)pip is installed$(tput setaf 7)"
 fi
@@ -39,7 +41,7 @@ fi
 if ! hash aiohttp &> /dev/null;
 then
 	echo "$(tput setaf 3)aiohttp is not installed$(tput setaf 7)"
-	sudo apt-get install aiohttp
+	pip3 install aiohttp
 else
 	echo "$(tput setaf 2)aiohttp is installed$(tput setaf 7)"
 fi
