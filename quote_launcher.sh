@@ -102,7 +102,7 @@ while [ $choice = 6 ]; do
 		echo "$(tput setaf 2)Successfully installed new core.$(tput setaf 7)"
 		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
 		sleep 3s
-		cd $BASE/QuoteBotOld/QuoteBot && py quote.py
+		cd $BASE/QuoteBotOld/QuoteBot && python3 quote.py
 	else
 
 	if [ $choice -eq 4 ]; then
