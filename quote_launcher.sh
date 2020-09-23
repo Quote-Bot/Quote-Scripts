@@ -58,6 +58,9 @@ find_or_create_quote()
 			echo "$(tput setaf 2)QuoteBotOld found. $(tput setaf 1)QuoteBotOld >X<$(tput setaf 7)"
 			rm -rf $BASE/QuoteBotOld
 			mkdir $BASE/QuoteBot
+			cd $BASE/QuoteBot
+			pip install discord.py == "1.4.1"
+			cd $BASE
 		fi
 	fi
 }
