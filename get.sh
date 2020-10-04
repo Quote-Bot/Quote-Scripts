@@ -8,9 +8,9 @@ sudo apt-get upgrade
 
 if type python3 > /dev/null;
 then
-	echo "$(tput setaf 2)Python 3.5+ is installed$(tput setaf 7)"
+	echo "$(tput setaf 2)Python 3.8+ is installed$(tput setaf 7)"
 else
-	echo "$(tput setaf 3)Python 3.5+ is not installed$(tput setaf 7)"
+	echo "$(tput setaf 3)Python 3.8+ is not installed$(tput setaf 7)"
 	sudo apt-get install python3
 fi
 sleep 3s
@@ -41,6 +41,7 @@ else
 	sudo apt-get install python3-pip
 fi
 pip3 install aiohttp
+pip3 install aiosqlite
 sleep 3s
 
 echo "Downloading Quote Linux Launcher......."
