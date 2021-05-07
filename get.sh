@@ -42,6 +42,7 @@ else
 fi
 pip3 install aiohttp
 pip3 install aiosqlite
+python3 -m pip install -U discord.py
 sleep 3s
 
 echo "Downloading Quote Linux Launcher......."
