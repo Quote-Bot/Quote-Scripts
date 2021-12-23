@@ -78,7 +78,7 @@ while [ $choice = 6 ]; do
 		else
 			cd $BASE/QuoteBot/QuoteBot
 		fi
-		python3 quote.py
+		python3 bot.py
 	else
 
 	if [ $choice -eq 2 ]; then
@@ -105,7 +105,7 @@ while [ $choice = 6 ]; do
 		echo "$(tput setaf 2)Successfully installed new core.$(tput setaf 7)"
 		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
 		sleep 3s
-		cd $BASE/QuoteBotOld/QuoteBot && python3 quote.py
+		cd $BASE/QuoteBotOld/QuoteBot && python3 bot.py
 	else
 
 	if [ $choice -eq 4 ]; then
@@ -121,7 +121,7 @@ while [ $choice = 6 ]; do
 		echo "$(tput setaf 2)Successfully installed new modules.$(tput setaf 7)"
 		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
 		sleep 3s
-		cd $BASE/QuoteBotOld/QuoteBot && python3 quote.py
+		cd $BASE/QuoteBotOld/QuoteBot && python3 bot.py
 	else
 	
 	if [ $choice -eq 5 ]; then
