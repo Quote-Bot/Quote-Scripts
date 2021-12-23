@@ -59,7 +59,6 @@ find_or_create_quote()
 			rm -rf $BASE/QuoteBotOld
 			mkdir $BASE/QuoteBot
 			cd $BASE/QuoteBot
-			pip install discord.py=="1.4.1"
 			cd $BASE
 		fi
 	fi
