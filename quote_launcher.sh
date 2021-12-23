@@ -78,7 +78,7 @@ while [ $choice = 6 ]; do
 		else
 			cd $BASE/QuoteBot/QuoteBot
 		fi
-		python3 bot.py
+		pipenv bot.py
 	else
 
 	if [ $choice -eq 2 ]; then
