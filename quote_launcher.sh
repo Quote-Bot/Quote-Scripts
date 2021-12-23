@@ -99,13 +99,13 @@ while [ $choice = 6 ]; do
 		sleep 3s
 		find_or_create_quote
 		echo "$(tput setaf 1)Removing old core..$(tput setaf 7)"
-		rm -rf $BASE/QuoteBotOld/QuoteBot/quote.py
+		rm -rf $BASE/QuoteBotOld/QuoteBot/bot.py
 		echo "$(tput setaf 2)Installing new core..$(tput setaf 7)"
-		curl https://raw.githubusercontent.com/Quote-Bot/QuoteBot/master/quote.py -o $BASE/QuoteBotOld/QuoteBot/quote.py
+		curl https://raw.githubusercontent.com/Quote-Bot/QuoteBot/master/bot.py -o $BASE/QuoteBotOld/QuoteBot/bot.py
 		echo "$(tput setaf 2)Successfully installed new core.$(tput setaf 7)"
 		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
 		sleep 3s
-		cd $BASE/QuoteBotOld/QuoteBot && python3 bot.py
+		cd $BASE/QuoteBotOld/QuoteBot && pipenv bot.py
 	else
 
 	if [ $choice -eq 4 ]; then
@@ -121,7 +121,7 @@ while [ $choice = 6 ]; do
 		echo "$(tput setaf 2)Successfully installed new modules.$(tput setaf 7)"
 		echo "Running $(tput setaf 6)Quote $(tput setaf 7)in 3 seconds.."
 		sleep 3s
-		cd $BASE/QuoteBotOld/QuoteBot && python3 bot.py
+		cd $BASE/QuoteBotOld/QuoteBot && pipenv bot.py
 	else
 	
 	if [ $choice -eq 5 ]; then
