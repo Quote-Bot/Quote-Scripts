@@ -5,6 +5,25 @@ echo "$(tput setaf 6)Initiated...$(tput setaf 7)"
 echo ""
 
 sudo apt-get upgrade
+
+if type git > /dev/null;
+  then
+    echo "$(tput setaf 2)Git is installed$(tput setaf 7)"
+  else
+    echo "$(tput setaf 3)Git is not installed$(tput setaf 7)"
+    sudo apt-get install git
+fi
+sleep 1s
+
+if type pipenv > /dev/null;
+  then
+    echo "$(tput setaf 2)Pipenv is installed$(tput setaf 7)"
+  else
+    echo "$(tput setaf 3)Pipenv is not installed$(tput setaf 7)"
+    sudo pip3 install pipenv
+fi
+sleep 1s
+
 echo "Downloading Quote Linux Launcher......."
 curl https://raw.githubusercontent.com/Quote-Bot/Quote-Scripts/master/quote_launcher.sh -o quote_launcher.sh
 dos2unix quote_launcher.sh
