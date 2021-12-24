@@ -87,8 +87,9 @@ while [ $choice = 6 ]; do
 		find_or_create_quote
 		cd $BASE/QuoteBot
 		git clone git://github.com/Quote-Bot/QuoteBot
+		cd /QuoteBot
 		pipenv install
-		cd ..
+		cd $BASE
 		sleep 1s
 		echo "$(tput setaf 3)Downloaded $(tput setaf 7)Quote!$(tput setaf 7)"
 	else
