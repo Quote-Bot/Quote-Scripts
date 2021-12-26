@@ -58,7 +58,7 @@ find_or_create_quote()
 			echo "$(tput setaf 2)QuoteBotOld found. $(tput setaf 1)QuoteBotOld >X<$(tput setaf 7)"
 			rm -rf $BASE/QuoteBotOld
 			mkdir $BASE/QuoteBot
-			cd QuoteBot
+			cd $BASE/QuoteBot
 			cd $BASE
 		fi
 	fi
@@ -87,7 +87,7 @@ while [ $choice = 6 ]; do
 		find_or_create_quote
 		cd $BASE/QuoteBot
 		git clone git://github.com/Quote-Bot/QuoteBot
-		cd /QuoteBot
+		cd QuoteBot/QuoteBot
 		pipenv install
 		cd $BASE
 		sleep 1s
