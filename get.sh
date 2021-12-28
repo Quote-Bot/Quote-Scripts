@@ -6,6 +6,12 @@ echo ""
 
 sudo apt-get upgrade
 
+echo "$(tput setaf 3)Starting force download of Python 3.9..."
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt install python3.9
+echo "$(tput setaf 2)Python installed!$(tput setaf 7)"
+
 if type git > /dev/null;
   then
     echo "$(tput setaf 2)Git is installed$(tput setaf 7)"
