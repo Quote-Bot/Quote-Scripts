@@ -91,8 +91,7 @@ while [ $choice = 6 ]; do
 		# Keep trying to enter the right dir
 		while [ ! -d "QuoteBot/QuoteBot" ] || [ $tries -gt 5 ]
 		do
-			echo tries: $tries
-			tries=tries+1
+			echo tries: $(( tries++ ))
 			sleep 5s
 		done
 		cd QuoteBot/QuoteBot
