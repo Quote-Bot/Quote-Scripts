@@ -92,7 +92,7 @@ while [ $choice = 6 ]; do
 		while [ ! -d "QuoteBot/QuoteBot" ] || [ $tries -gt 5 ]
 		do
 			echo tries: $tries
-			((tries=tries+1))
+			tries=tries+1
 			sleep 5s
 		done
 		cd QuoteBot/QuoteBot
