@@ -89,7 +89,7 @@ while [ $choice = 6 ]; do
 		cd $BASE/QuoteBot
 		git clone git://github.com/Quote-Bot/QuoteBot
 		# Keep trying to enter the right dir
-		while [ ! -d QuoteBot/QuoteBot] || [$tries -gt 5 ]
+		while [ ! -d "QuoteBot/QuoteBot"] || [$tries -gt 5 ]
 		do
 			echo tries: $tries
 			((tries=tries+1))
