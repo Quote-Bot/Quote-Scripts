@@ -89,10 +89,10 @@ while [ $choice = 6 ]; do
 		cd $BASE/QuoteBot
 		git clone git://github.com/Quote-Bot/QuoteBot
 		# Keep trying to enter the right dir
-		while [ ! -d $BASE/QuoteBot/QuoteBot ] || [ $tries -lt 5 ]
+		while [ ! -d $BASE/QuoteBot/QuoteBot ] || [ $tries -lt 6 ]
 		do
 			echo tries: $(( tries++ ))
-			sleep 5s
+			sleep 2s
 		done
 		cd $BASE/QuoteBot/QuoteBot
 		# Install dependencies from pipfile in QuoteBot/QuoteBot
