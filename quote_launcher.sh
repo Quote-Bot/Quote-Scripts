@@ -40,6 +40,7 @@ choice=6
 	echo "Choose $(tput setaf 3)[5] $(tput setaf 7)to $(tput setaf 1)Exit$(tput setaf 7)"
 
 BASE=$PWD
+tries=0
 
 find_or_create_quote()
 {
@@ -86,7 +87,15 @@ while [ $choice = 6 ]; do
 		sleep 1s
 		find_or_create_quote
 		cd $BASE/QuoteBot
-		git clone git://github.com/Quote-Bot/QuoteBot && cd QuoteBot/QuoteBot
+		git clone git://github.com/Quote-Bot/QuoteBot
+		# Keep trying to enter the right dir
+		while [ ! -d $BASE/QuoteBot/QuoteBot ] || [ $tries -lt 6 ]
+		do
+			echo tries: $(( tries++ ))
+			sleep 2s
+		done
+		cd $BASE/QuoteBot/QuoteBot
+		# Install dependencies from pipfile in QuoteBot/QuoteBot
 		pipenv install
 		cd $BASE
 		sleep 1s
