@@ -12,6 +12,10 @@ sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt install python3.9
 echo "$(tput setaf 2)Python installed!$(tput setaf 7)"
 
+echo "$(tput setaf 3)Downloading pip..."
+sudo apt install python3-pip
+echo "$(tput setaf 2)Pip installed!$(tput setaf 7)"
+
 if type git > /dev/null;
   then
     echo "$(tput setaf 2)Git is installed$(tput setaf 7)"
