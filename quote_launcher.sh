@@ -87,7 +87,7 @@ while [ $choice = 6 ]; do
 		sleep 1s
 		find_or_create_quote
 		cd $BASE/QuoteBot
-		git clone git://github.com/Quote-Bot/QuoteBot
+		git clone https://github.com/Quote-Bot/QuoteBot
 		# Keep trying to enter the right dir
 		while [ ! -d $BASE/QuoteBot/QuoteBot ] || [ $tries -lt 6 ]
 		do
@@ -124,7 +124,7 @@ while [ $choice = 6 ]; do
 		find_or_create_quote
 		echo "$(tput setaf 1)Removing old modules..$(tput setaf 7)"
 		rm -rf $BASE/QuoteBotOld/QuoteBot/cogs
-		git clone git://github.com/Quote-Bot/QuoteBot NewModules
+		git clone https://github.com/Quote-Bot/QuoteBot NewModules
 		echo "$(tput setaf 2)Installing new modules..$(tput setaf 7)"
 		mv $BASE/NewModules/cogs $BASE/QuoteBotOld/QuoteBot/
 		echo "$(tput setaf 2)Successfully installed new modules.$(tput setaf 7)"
